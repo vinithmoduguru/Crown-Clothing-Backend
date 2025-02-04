@@ -12,12 +12,11 @@ const getCategories = async (req, res) => {
 };
 
 const createCategory = async (req, res) => {
-  const { title, items } = req.body;
+  const { title, imageUrl } = req.body;
   try {
     const newCategory = await Category.create({
       title,
-      items,
-      isActive: true,
+      imageUrl,
     });
     res.status(201).json(newCategory);
   } catch (error) {
