@@ -2,9 +2,15 @@ const Category = require("../models/categoryModel");
 
 const getCategories = async (req, res) => {
   try {
-    const categories = await Category.find({
-      isActive: true,
-    });
+    const categories = await Category.find(
+      {
+        isActive: true,
+      },
+      {
+        title: 1,
+        imageUrl: 1,
+      }
+    );
     res.status(200).json(categories);
   } catch (error) {
     res.status(500).json({ message: error.message });
