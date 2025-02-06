@@ -1,7 +1,7 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
-const categoryRoutes = require("./routes/categoryRoutes");
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db";
+import categoryRoutes from "./routes/categoryRoutes";
 
 // Load environment variables
 dotenv.config();
@@ -17,4 +17,5 @@ app.use(express.json());
 
 // Routes
 app.use("/api/categories", categoryRoutes);
-module.exports = app;
+
+export default app;
