@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
 import categoryRoutes from "./routes/categoryRoutes";
+import productRoutes from "./routes/productRoutes";
 
 // Load environment variables
 dotenv.config();
@@ -17,5 +18,6 @@ app.use(express.json());
 
 // Routes
 app.use("/api/categories", categoryRoutes);
+app.use("/api/products", productRoutes);
 
 export default app;

@@ -1,12 +1,6 @@
-import mongoose, { Document, Schema, Model } from "mongoose";
+import mongoose, { Schema, Model, InferSchemaType } from "mongoose";
 
-interface ICategory extends Document {
-  title: string;
-  imageUrl: string;
-  isActive: boolean;
-}
-
-const CategorySchema: Schema<ICategory> = new Schema(
+const CategorySchema = new Schema(
   {
     title: { type: String, required: true, unique: true },
     imageUrl: { type: String, required: true },
@@ -14,6 +8,8 @@ const CategorySchema: Schema<ICategory> = new Schema(
   },
   { timestamps: true }
 );
+
+export type ICategory = InferSchemaType<typeof CategorySchema>;
 
 const Category: Model<ICategory> = mongoose.model<ICategory>(
   "Category",
